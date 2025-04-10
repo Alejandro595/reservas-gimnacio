@@ -1,1 +1,1 @@
-# reservas-gimnacio
+# reservas-gimnasio
