@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link type="text/css" rel="stylesheet" href="style.css"/>
+  </head>
+  <body>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva de Gimnasio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Pantalla de bienvenida -->
+        <div id="home-screen" class="screen active">
+            <h1>Bienvenido a GymReserve</h1>
+            <button class="btn" onclick="goToScreen('reservation-screen')">Reservar Clase</button>
+            <button class="btn" onclick="goToScreen('trainers-screen')">Entrenadores</button>
+            <button class="btn" onclick="goToScreen('progress-screen')">Ver Progreso</button>
+            <button class="btn" onclick="goToScreen('notifications-screen')">Notificaciones</button>
+            <button class="btn" onclick="goToScreen('forum-screen')">Foro</button>
+        </div>
+
+        <!-- Pantalla de reservas -->
+        <div id="reservation-screen" class="screen">
+            <h2>Reservar Clase</h2>
+            <select id="trainer-select">
+                <option value="boxing">Boxeo</option>
+                <option value="fitness">Fitness</option>
+            </select>
+            <input type="datetime-local" id="reservation-time">
+            <button class="btn" onclick="confirmReservation()">Confirmar Reserva</button>
+            <button class="btn" onclick="goToScreen('home-screen')">Volver al Inicio</button>
+        </div>
+
+        <!-- Pantalla de entrenadores -->
+        <div id="trainers-screen" class="screen">
+            <h2>Entrenadores Disponibles</h2>
+            <div>
+                <label for="specialty-select">Selecciona especialidad: </label>
+                <select id="specialty-select" onchange="loadTrainersBySpecialty()">
+                    <option value="">-- Todos --</option>
+                    <option value="boxing">Boxeo</option>
+                    <option value="fitness">Fitness</option>
+                </select>
+            </div>
+            <ul id="trainers-list">
+                <!-- Entrenadores se cargarán aquí dinámicamente -->
+            </ul>
+            <button class="btn" onclick="goToScreen('home-screen')">Volver al Inicio</button>
+        </div>
+
+        <!-- Pantalla de progreso -->
+        <div id="progress-screen" class="screen">
+            <h2>Progreso</h2>
+            <p id="progress-message">¡Sigue entrenando para ver tu progreso!</p>
+            <p>Ejercicios realizados: <span id="exercises-completed">0</span></p>
+            <button class="btn" onclick="completeTask()">Marcar tarea como completada</button>
+            <p>Logros alcanzados:</p>
+            <ul id="achievements-list">
+                <!-- Logros se cargarán aquí dinámicamente -->
+            </ul>
+            <button class="btn" onclick="goToScreen('home-screen')">Volver al Inicio</button>
+        </div>
+
+        <!-- Pantalla de notificaciones -->
+        <div id="notifications-screen" class="screen">
+            <h2>Notificaciones</h2>
+            <ul id="notifications-list">
+                <!-- Notificaciones se cargarán aquí dinámicamente -->
+            </ul>
+            <button class="btn" onclick="goToScreen('home-screen')">Volver al Inicio</button>
+        </div>
+
+        <!-- Pantalla de foro -->
+        <div id="forum-screen" class="screen">
+            <h2>Foro</h2>
+            <textarea id="forum-post" placeholder="Escribe tu comentario..."></textarea>
+            <button class="btn" onclick="submitPost()">Publicar</button>
+            <ul id="forum-posts">
+                <!-- Los posts del foro se mostrarán aquí -->
+            </ul>
+            <button class="btn" onclick="goToScreen('home-screen')">Volver al Inicio</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
